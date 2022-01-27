@@ -2,9 +2,8 @@ import pytest
 import student 
 
 
-
-def test_jump():
-    input_values=['jump']
+def test_five():
+    input_values=['5']
     output=[]
 
     def mock_input(s=None):
@@ -20,10 +19,11 @@ def test_jump():
 
     student.main()
 
-    assert output[1]=='jumping'
+    assert '31.4'in output[1] and '78.5' in output[1], "Should have both area and circumference"
 
-def test_eat():
-    input_values=['eat']
+
+def test_three():
+    input_values=['3']
     output=[]
 
     def mock_input(s=None):
@@ -39,10 +39,10 @@ def test_eat():
 
     student.main()
 
-    assert output[1]=='eating'    
-
-def test_scarps():
-    input_values=['scarp']
+    assert '18.84'in output[1] and '28.2' in output[1], "Should have both area and circumference"
+    
+def test_two_point_five():
+    input_values=['2.5']
     output=[]
 
     def mock_input(s=None):
@@ -58,22 +58,4 @@ def test_scarps():
 
     student.main()
 
-    assert output[1]=='scarping'
-def test_groundbreak():
-    input_values=['groundbreak']
-    output=[]
-
-    def mock_input(s=None):
-        if s is not None:
-            output.append(s)
-            return input_values.pop(0)
-        else:
-            output.append("")
-            return input_values.pop(0)
-    
-    student.input = mock_input
-    student.print = lambda s : output.append(s)
-
-    student.main()
-
-    assert output[1]=='groundbreaking'
+    assert '15.7'in output[1] and '19.6' in output[1], "Should have both area and circumference"
