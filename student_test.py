@@ -2,7 +2,7 @@ import pytest
 import student 
 
 
-def test_five():
+def test_five(capsys):
     input_values=['5']
     output=[]
 
@@ -15,14 +15,13 @@ def test_five():
             return input_values.pop(0)
     
     student.input = mock_input
-    student.print = lambda s : output.append(s)
-
     student.main()
 
-    assert '31.4'in output[1] and '78.5' in output[1], "Should have both area and circumference"
+    out, err = capsys.readouterr()
+    assert '31.4'in out and '78.5' in out, "Should have both area and circumference"
 
 
-def test_three():
+def test_three(capsys):
     input_values=['3']
     output=[]
 
@@ -35,13 +34,12 @@ def test_three():
             return input_values.pop(0)
     
     student.input = mock_input
-    student.print = lambda s : output.append(s)
-
     student.main()
 
-    assert '18.84'in output[1] and '28.2' in output[1], "Should have both area and circumference"
+    out, err = capsys.readouterr()
+    assert '18.84'in out and '28.2' in out, "Should have both area and circumference"
     
-def test_two_point_five():
+def test_two_point_five(capsys):
     input_values=['2.5']
     output=[]
 
@@ -54,8 +52,7 @@ def test_two_point_five():
             return input_values.pop(0)
     
     student.input = mock_input
-    student.print = lambda s : output.append(s)
-
     student.main()
-
-    assert '15.7'in output[1] and '19.6' in output[1], "Should have both area and circumference"
+    
+    out, err = capsys.readouterr()
+    assert '15.7'in out and '19.6' in out, "Should have both area and circumference"
